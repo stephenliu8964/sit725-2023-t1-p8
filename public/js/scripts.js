@@ -6,7 +6,7 @@ const addCards = (items) => {
 }
 
 const getProjects = () => {
-    $.get('/api/projects', (response) => {
+    $.get('/api/cats', (response) => {
         if (response.statusCode === 200) {
             addCards(response.data);
         }
@@ -26,7 +26,7 @@ const submitForm = () => {
 
 const addProjectToApp = (project) => {
     $.ajax({
-        url: '/api/projects',
+        url: '/api/cats',
         data: project,
         type: 'POST',
         success: (result) => {
