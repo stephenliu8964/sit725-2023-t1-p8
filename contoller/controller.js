@@ -11,6 +11,17 @@ const insertCat = (req, res) => {
     });
 };
 
+const remove = (req, res) => {
+    let newProject = req.body;
+    model.deleteCat(newProject, (error, result) => {
+        if (error) {
+            res.json({statusCode: 400, message: error});
+        } else {
+            res.json({statusCode: 200, data: result, message: 'project successfully removed'});
+        }
+    });
+};
+
 const getAllCats = (req, res) => {
     model.getCats((error, result) => {
         if(error) {
@@ -21,4 +32,4 @@ const getAllCats = (req, res) => {
     });
 }
 
-module.exports = {insertCat, getAllCats}
+module.exports = {insertCat, getAllCats, remove}

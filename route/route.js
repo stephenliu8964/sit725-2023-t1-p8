@@ -10,4 +10,8 @@ router.get('/api/cats', (req, res) => {
     controller.getAllCats(req, res);
 });
 
+router.delete('/api/cats', (req, res) => {
+    controller.remove(req, res);
+});
+
 module.exports = router;
